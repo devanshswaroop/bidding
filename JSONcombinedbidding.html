@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Bidding System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+
+    <style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            height: 100vh;
+        }
+
+        .full-width-hr {
+            width: 100%;
+            border: 2px solid #000;
+            text-align: left;
+            margin-left: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            margin-left: 0;
+            margin-right: auto;
+        }
+		.col-form-label{
+			font-size:17px;
+			font-weight: normal;
+			font-family: "Times New Roman", Times, serif;
+		}
+		.form-check-label{
+			font-size:17px;
+			font-weight: normal;
+			font-family: "Times New Roman", Times, serif;
+		}
+		.form-control-file{
+			font-size:17px;
+			font-weight: normal;
+			font-family: "Times New Roman", Times, serif;
+		}
+		.form-button{
+			font-size:17px;
+			font-weight: normal;
+			font-family: "Times New Roman", Times, serif;
+			align="center";
+		}
+		center-button{
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  padding: 20px;
+		}
+	
+    </style>
+</head>
+
+<body>
+
+<div>
+	<div class='col-sm-4'></div>
+	<div class='col-sm-4'>
+	    <h2 class="text-center">BID TO BUY!</h2>
+		<div class="form-group row">
+			<label for="options" class="col-lg-6 col-form-label">Product Type:</label>
+			<div class="col-lg-6">
+				<select class="form-control" id="options" name="options">
+					<option value="">--Select--</option>
+					<option value="printer">Printer</option>
+					<option value="projector">Projector</option>					
+					<option value="phone">Phone</option>
+					<option value="car">Car</option>					
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class='col-sm-4'></div>
+</div>
+
+
+    <hr class="full-width-hr"><br>
+
+<!-- Product Forms -->
+<form id="printer-form" class="product-form" hidden>
+    <div class="container center-content">
+        <div class="row">
+            <!-- ************************ -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <form id="printerform" action="#">
+		 <div class="form-group row">
+                    <label for="productcode" class="col-lg-4 col-form-label">Product Code:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="productcode" name="productcode">
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label for="modeldes" class="col-lg-4 col-form-label">Model Description:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="modeldes" name="modeldes">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="serialno" class="col-lg-4 col-form-label">Serial Number:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="serialno" name="serialno">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="asset" class="col-lg-4 col-form-label">Asset Number:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="asset" name="asset">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="monthandyr" class="col-lg-4 col-form-label">Month and Year of Import and Manufacturing:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="monthandyr" name="monthandyr">
+                    </div>
+                </div>
+              
+            </div>
+            <!--**************************************-->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+             <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Original carton box:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="carton" value="Yes" id="carton-yes">
+                            <label class="form-check-label" for="carton-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="carton" value="No" id="carton-no">
+                            <label class="form-check-label" for="carton-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Power Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="powercable" value="Yes" id="powercable-yes">
+                            <label class="form-check-label" for="powercable-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="powercable" value="No" id="powercable-no">
+                            <label class="form-check-label" for="powercable-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                
+               <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">VGA Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="vga" value="Yes" id="vga-yes">
+                            <label class="form-check-label" for="vga-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="vga" value="No" id="vga-no">
+                            <label class="form-check-label" for="vga-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">USB Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="usbcable" value="Yes" id="usbcable-yes">
+                            <label class="form-check-label" for="usbcable-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="usbcable" value="No" id="usbcable-no">
+                            <label class="form-check-label" for="usbcable-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="form-group row">
+                    <label for="usedby" class="col-lg-4 col-form-label">Used By:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="usedby" name="usedby">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quote" class="col-lg-4 col-form-label">Third Party Vendor Quote:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="quote" name="quote">
+                    </div>
+                </div>
+      <div class="form-group row">
+        <label for="photosprinter" class="col-lg-4 col-form-label">Upload Photos:</label>
+        <div class="col-lg-8">
+            <input type="file" class="form-control-file" id="photosprinter" name="photos[]" multiple>
+            <small class="form-text text-muted">Select one or more photos.</small>
+        </div>
+    </div>
+					 <div class="center-button">
+        <button type="button" class="btn btn-primary" id="PrinterSubmit">Submit</button>
+    </div>
+
+</form>
+
+
+
+
+            </div>
+			
+        </div>
+		
+	
+    </div>
+	
+	
+	
+</form>
+
+
+
+<form id="projector-form" class="product-form" hidden>
+    <div class="container center-content">
+        <div class="row">
+            <!--***********************************************************8 -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <form id="myFormProjector">
+<div class="form-group row">
+                    <label for="productcodeprojector" class="col-lg-4 col-form-label">Product Code:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="productcodeprojector" name="productcodeprojector">
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label for="modeldesproj" class="col-lg-4 col-form-label">Model Description:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="modeldesproj" name="modeldesproj">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="serialnoproj" class="col-lg-4 col-form-label">Serial Number:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="serialnoproj" name="serialnoproj">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="assetproj" class="col-lg-4 col-form-label">Asset Number:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="assetproj" name="assetproj">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="monthandyrproj" class="col-lg-4 col-form-label">Month and Year of Import and Manufacturing:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="monthandyrproj" name="monthandyrproj">
+                    </div>
+                </div>
+              
+
+            </div>
+            <!-- ***********************************************************8 -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Original carton box:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cartonproj" value="Yes" id="cartonproj-yes">
+                            <label class="form-check-label" for="cartonproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cartonproj" value="No" id="cartonproj-no">
+                            <label class="form-check-label" for="cartonproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Power Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="powercableproj" value="Yes" id="powercableproj-yes">
+                            <label class="form-check-label" for="powercableproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="powercableproj" value="No" id="powercableproj-no">
+                            <label class="form-check-label" for="powercableproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+		  <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Remote Controller:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="remoteproj" value="Yes" id="remoteproj-yes">
+                            <label class="form-check-label" for="remoteproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="remoteproj" value="No" id="remoteproj-no">
+                            <label class="form-check-label" for="remoteproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                
+               <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">VGA Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="vgaproj" value="Yes" id="vgaproj-yes">
+                            <label class="form-check-label" for="vgaproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="vgaproj" value="No" id="vgaproj-no">
+                            <label class="form-check-label" for="vgaproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">USB Cable:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="usbcableproj" value="Yes" id="usbcableproj-yes">
+                            <label class="form-check-label" for="usbcableproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="usbcableproj" value="No" id="usbcableproj-no">
+                            <label class="form-check-label" for="usbcableproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+		 <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Interactive Pen:</label>
+                    <div class="col-lg-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="intpenproj" value="Yes" id="intpenproj-yes">
+                            <label class="form-check-label" for="intpenproj-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="intpenproj" value="No" id="intpenproj-no">
+                            <label class="form-check-label" for="intpenproj-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="form-group row">
+                    <label for="usedbyproj" class="col-lg-4 col-form-label">Used By:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="usedbyproj" name="usedbyproj">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quoteproj" class="col-lg-4 col-form-label">Third Party Vendor Quote:</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="quoteproj" name="quoteproj">
+                    </div>
+                </div>
+      <div class="form-group row">
+        <label for="photosproj" class="col-lg-4 col-form-label">Upload Photos:</label>
+        <div class="col-lg-8">
+            <input type="file" class="form-control-file" id="photosproj" name="photos[]" multiple>
+            <small class="form-text text-muted">Select one or more photos.</small>
+        </div>
+    </div>
+				 <div class="center-button">
+        <button type="button" class="btn btn-primary" id="projectorSubmit">Submit</button>
+    </div>
+</form>
+
+            </div>
+        </div>
+    </div>
+			
+</form>
+
+<form id="phone-form" class="product-form" hidden>
+    <div class="container center-content">
+        <div class="row">
+            <!-- ************************************************************ -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <form id="phoneform">
+		 <div class="form-group row">
+                    <label for="model" class="col-sm-4 col-form-label">Model:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="model" name="model">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="variant" class="col-sm-4 col-form-label">Variant:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="variant" name="variant">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="assetnophn" class="col-sm-4 col-form-label">Asset Number:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="assetnophn" name="assetnophn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="manufacturing" class="col-sm-4 col-form-label">Month & Year of Import & Manufacturing:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="manufacturing" name="manufacturing">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colorphn" class="col-sm-4 col-form-label">Color:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="colorphn" name="colorphn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ogbox" class="col-sm-4 col-form-label">Original Box:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ogbox" name="ogbox">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Headset:</label>
+                    <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="headset" value="Yes" id="headset-yes">
+                            <label class="form-check-label" for="headset-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="headset" value="No" id="headset-no">
+                            <label class="form-check-label" for="headset-no">No</label>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <!--*********************************************************** -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Charger:</label>
+                    <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="charger" value="Yes" id="charger-yes">
+                            <label class="form-check-label" for="charger-yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="charger" value="No" id="charger-no">
+                            <label class="form-check-label" for="charger-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="usedbyphn" class="col-sm-4 col-form-label">Used By:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="usedbyphn" name="usedbyphn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quotephn" class="col-sm-4 col-form-label">Third Party Vendor Quote:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="quotephn" name="quotephn">
+                    </div>
+                </div>
+		 <div class="form-group row">
+        <label for="photosphone" class="col-lg-4 col-form-label">Upload Photos:</label>
+        <div class="col-lg-8">
+            <input type="file" class="form-control-file" id="photosphone" name="photos[]" multiple>
+            <small class="form-text text-muted">Select one or more photos.</small>
+        </div>
+    </div>
+	 <div class="center-button">
+        <button type="" class="btn btn-primary" id="phoneSubmit">Submit</button>
+    </div>
+            </form>
+
+            </div>
+        </div>
+	
+    </div>
+				
+	
+</form>
+	
+
+<form id="car-form" class="product-form" hidden>
+    <div class="container center-content">
+        <div class="row">
+            <!--***************************************************************8-->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+               <form id="carform">
+ <div class="form-group row">
+                    <label for="modelcar" class="col-sm-4 col-form-label">Model:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="modelcar" name="modelcar">
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label for="variantcar" class="col-sm-4 col-form-label">Variant:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="variantcar" name="variantcar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regnocar" class="col-sm-4 col-form-label">Registration Number:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="regnocar" name="regnocar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regdatecar" class="col-sm-4 col-form-label">Registration Date:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="regdatecar" name="regdatecar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colorcar" class="col-sm-4 col-form-label">Color:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="colorcar" name="colorcar">
+                    </div>
+                </div>
+             
+            </div>
+            <!-- ************************************************************* -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group row">
+                    <label for="fuelcar" class="col-sm-4 col-form-label">Fuel Type:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="fuelcar" name="fuelcar">
+                    </div>
+                </div>
+		<div class="form-group row">
+                    <label for="insurancecar" class="col-sm-4 col-form-label">Insurance Validity:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="insurancecar" name="insurancecar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="mileagecar" class="col-sm-4 col-form-label">Mileage Done:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="mileagecar" name="mileagecar">
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-group row">
+                    <label for="usedbycar" class="col-sm-4 col-form-label">Used By:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="usedbycar" name="usedbycar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quotecar" class="col-sm-4 col-form-label">Third Party Vendor Quote:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="quotecar" name="quotecar">
+                    </div>
+                </div>
+		 <div class="form-group row">
+        <label for="photoscar" class="col-lg-4 col-form-label">Upload Photos:</label>
+        <div class="col-lg-8">
+            <input type="file" class="form-control-file" id="photoscar" name="photos[]" multiple>
+            <small class="form-text text-muted">Select one or more photos.</small>
+        </div>
+    </div>
+		 <div class="center-button">
+        <button type="button" class="btn btn-primary" id="carSubmit">Submit</button>
+    </div>	
+
+            </form>
+	
+            </div>
+        </div>
+    </div>
+			
+</form>
+
+
+
+<script>
+$(document).ready(function(){
+  $("#options").change(function(){
+    //alert(this.value);
+	var val = this.value;
+	//alert(val);
+	
+	if(val=="projector"){
+		$('#printer-form').hide();
+		$('#projector-form').show();
+		$('#phone-form').hide();
+		$('#car-form').hide();
+	}else if(val=="printer"){
+			$('#printer-form').show();
+			$('#projector-form').hide();
+			$('#phone-form').hide();
+			$('#car-form').hide();
+		}
+		else if(val=="car"){
+				$('#printer-form').hide();
+				$('#projector-form').hide();
+				$('#phone-form').hide();
+				$('#car-form').show();	
+		}
+		else if(val=="phone"){
+					$('#printer-form').hide();
+					$('#projector-form').hide();
+					$('#phone-form').show();
+					$('#car-form').hide();
+		}
+  });
+});
+</script>
+
+
+
+
+		
+<script>
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$(function() {
+    $('#PrinterSubmit').click(function() {
+        alert(JSON.stringify($('#printer-form').serializeObject()));
+        //console.log(JSON.stringify($('#FormCreateUser').serializeObject()));
+        
+	 
+    });
+});
+
+
+$(function() {
+    $('#projectorSubmit').click(function() {
+        alert(JSON.stringify($('#projector-form').serializeObject()));
+        //console.log(JSON.stringify($('#FormCreateUser').serializeObject()));
+        
+	 
+    });
+});
+
+$(function() {
+    $('#phoneSubmit').click(function() {
+        alert(JSON.stringify($('#phone-form').serializeObject()));
+        //console.log(JSON.stringify($('#FormCreateUser').serializeObject()));
+        
+	 
+    });
+});
+
+$(function() {
+    $('#carSubmit').click(function() {
+        alert(JSON.stringify($('#car-form').serializeObject()));
+        //console.log(JSON.stringify($('#FormCreateUser').serializeObject()));
+        
+	 
+    });
+});
+
+</script>
+        
+
+
+
+
+
+</body>
+
+</html>
